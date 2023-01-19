@@ -11,7 +11,7 @@ public interface WebDriverConfig extends Config  {
     @DefaultValue("https://shop.kz")
     String getBaseUrl();
 
-    @Key("browserName")
+    @Key("browser")
     @DefaultValue("chrome")
     String getBrowserName();
 
