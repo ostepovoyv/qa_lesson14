@@ -93,53 +93,44 @@ gradle clean test
 ><code>BROWSER_VERSION</code> – версия браузера.
 >
 
-
-
-
-
-
-
-
-## <img width="4%" title="Jenkins" src="readme_design/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
-
-
+## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
 <p align="center">
-<img title="Jenkins" src="readme_design/screens/Jenkins.png">
+<img title="Jenkins" src="images/screens/Jenkins.png">
 </p>
 
-## <img width="4%" title="Allure_Report" src="readme_design/logo/Allure_Report.svg"> Главная страница allure отчета
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Главная страница allure отчета
 
 <p align="center">
-<img title="Allure_main" src="readme_design/screens/Allure_main.png">
+<img title="Allure_main" src="images/screens/Allure_main.png">
 </p>
 
-### <img width="4%" title="Allure_Report" src="readme_design/logo/Allure_Report.svg"> Группировка тестов по проверяемому функционалу
+### <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Группировка тестов по проверяемому функционалу
 
 <p align="center">
-<img title="Allure_suits" src="readme_design/screens/Allure_suits.png">
+<img title="Allure_suits" src="images/screens/Allure_suits.png">
 </p>
 
-### <img width="4%" title="Allure_Report" src="readme_design/logo/Allure_Report.svg"> Основной дашборд
+### <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Основной дашборд
 
 <p align="center">
-<img title="Allure_dashboard" src="readme_design/screens/Allure_dashboard.png">
+<img title="Allure_dashboard" src="images/screens/Allure_dashboard.png">
 </p>
 
-## <img width="4%" title="Telegram" src="readme_design/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
 
 > После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне.
 > 
 > Информация по настройке и использованию бота <code>https://github.com/qa-guru/allure-notifications</code>
 
 <p align="center">
-<img title="Telegram_notifications" src="readme_design/screens/Telegram_notifications.png">
+<img title="Telegram_notifications" src="images/screens/Telegram_notifications.png">
 </p>
 
-## <img width="4%" title="Selenoid" src="readme_design/logo/Selenoid.svg"> Пример запуска теста в Selenoid
+## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
 
 > К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
 
 <p align="center">
-<img title="Selenoid_gif" src="readme_design/gifs/Selenoid.gif">
+<img title="Selenoid_gif" src="images/gifs/Selenoid.gif">
 </p>
