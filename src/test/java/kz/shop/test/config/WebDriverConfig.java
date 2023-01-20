@@ -2,29 +2,31 @@ package kz.shop.test.config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
+        "system:properties",
         "classpath:${env}.properties"
 })
 public interface WebDriverConfig extends Config  {
 
     @Key("baseUrl")
-//    @DefaultValue("https://shop.kz")
+    @DefaultValue("https://shop.kz")
     String getBaseUrl();
 
     @Key("browser")
-//    @DefaultValue("chrome")
+    @DefaultValue("chrome")
     String getBrowserName();
 
     @Key("browserVersion")
-//    @DefaultValue("100.0")
+    @DefaultValue("100.0")
     String getBrowserVersion();
 
     @Key("browserSize")
-//    @DefaultValue("1920x1080")
+    @DefaultValue("1920x1080")
     String getBrowserSize();
 
     @Key("isRemote")
-//    @DefaultValue("false")
+    @DefaultValue("false")
     Boolean isRemote();
 
     @Key("remoteUrl")
@@ -32,7 +34,7 @@ public interface WebDriverConfig extends Config  {
     String getRemoteUrl();
 
     @Key("pageLoadTimeout")
-//    @DefaultValue("100000")
+    @DefaultValue("100000")
     Long getPageLoadTimeout();
 
 }
