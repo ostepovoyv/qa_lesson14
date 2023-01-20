@@ -115,20 +115,18 @@ gradle clean test -Denv=remote
 
 ## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
 
-> После прохождения всех тестов, автоматически отправялется отчет в<code>Telegram</code>,
-> 
-> 
-> 
+> После прохождения всех тестов, автоматически отправялется отчет в<code>Telegram</code>
+>
 
 <p align="center">
 <img title="telegram_notification" src="images/screens/telegram_notification.png">
 </p>
 
-## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
+## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример прохождения теста в Selenoid
 
 > Для каждого теста в отчете прилагается видео.
 > 
-> Видео для примера 
+> Видео для примера. 
 
 <p align="center">
 <img title="toCart" src="images/gifs/toCart.gif">
