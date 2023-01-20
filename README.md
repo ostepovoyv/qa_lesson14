@@ -71,27 +71,27 @@ gradle clean test -Denv=remote
 
 ### Запуск тестов в Jenkins
 
+#### Для запуска тестов в Jenkins используется команда
 ```
-gradle clean test
--DremoteUrl=${REMOTE_SELENOID_URL}
--DvideoUrl=${VIDEO_URL}
--DbrowserSize=${BROWSER_SIZE}
--Dbrowser=${BROWSER}
--DbrowserVersion=${BROWSER_VERSION}
+gradle clean test -Denv=remote
 ```
+#### Для запуска тестов в Jenkins используется <code>remote.proterties</code>
+#### Параметры сборки
+>
+><code>baseUrl</code> – адрес удаленного сервера, на котором будут запускаться тесты.
+> 
+><code>browser</code> – браузер для тестов.
+> 
+><code>browserVersion</code> – версия браузера.
+> 
+><code>browserSize</code> – размер окна браузера.
+> 
+><code>remoteUrl</code> – адрес удаленного сервера, на котором будут запускаться тесты.
+>
+><code>pageLoadTimeout</code> – таймаут, для ожидания загрузки страницы.
+> 
+> <code>isRemote</code> – флаг, определяющий удаленный запуск тестов.
 
-### Параметры сборки
->
-><code>REMOTE_SELENOID_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты.
-> 
-><code>VIDEO_URL</code> – путь для видео результатов тестов.
-> 
-><code>BROWSER_SIZE</code> – размер окна браузера.
-> 
-><code>BROWSER</code> – браузер для тестов.
-> 
-><code>BROWSER_VERSION</code> – версия браузера.
->
 
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
