@@ -1,5 +1,8 @@
 package kz.shop.test;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import kz.shop.test.config.TestBase;
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.MainPage;
@@ -27,6 +30,26 @@ public class ShopTest extends TestBase {
     public void checkMainPageSection(String value) {
         step("Проверяем наличие разделов на главной странице", () -> {
             new MainPage().verifySectionTitleText(value);
+        });
+    }
+
+    @MethodSource
+    @ParameterizedTest(name = "Проверка бокового меню {0}")
+    public void verifySidebarTest(String items, List<String> categories) {
+        new MainPage().verifySidebarMenu(items, categories);
+    }
+
+    @ParameterizedTest(name = "Проверка горизонтального меню {0}")
+    @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
+    public void verifyHorizontalMenuTest(String items) {
+        new MainPage().verifyHorizontalMenu(items);
+    }
+
+    @ParameterizedTest(name = "Проверка элементов: {0}")
+    @CsvFileSource(resources = "/test.csv")
+    public void verifyFooterMenuItems(String items) {
+        step("Тестируем пункты меню в футере", () -> {
+            new MainPage().verifyFooter(items);
         });
     }
 
@@ -89,23 +112,4 @@ public class ShopTest extends TestBase {
         );
     }
 
-    @MethodSource
-    @ParameterizedTest(name = "Проверка бокового меню {0}")
-    public void verifySidebarTest(String items, List<String> categories) {
-        new MainPage().verifySidebarMenu(items, categories);
-    }
-
-    @ParameterizedTest(name = "Проверка горизонтального меню {0}")
-    @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
-    public void verifyHorizontalMenuTest(String items) {
-        new MainPage().verifyHorizontalMenu(items);
-    }
-
-    @ParameterizedTest(name = "Проверка элементов: {0}")
-    @CsvFileSource(resources = "/test.csv")
-    public void verifyFooterMenuItems(String items) {
-        step("Тестируем пункты меню в футере", () -> {
-            new MainPage().verifyFooter(items);
-        });
-    }
 }
