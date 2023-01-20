@@ -96,10 +96,10 @@ gradle clean test -Denv=remote
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
 <p align="center">
-<img title="Jenkins" src="images/screens/Jenkins.png">
+<img title="Jenkins" src="images/screens/jenkins_job.png">
 </p>
 
-## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Главная страница allure отчета
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Главная страница Allure отчета
 
 <p align="center">
 <img title="Allure_main" src="images/screens/Allure_main.png">
