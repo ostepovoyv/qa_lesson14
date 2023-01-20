@@ -96,19 +96,19 @@ gradle clean test -Denv=remote
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
 <p align="center">
-<img title="Jenkins" src="images/screens/jenkins_job.png">
+<img title="jenkins_job" src="images/screens/jenkins_job.png">
 </p>
 
 ## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Cтраница Allure отчета
 
 <p align="center">
-<img title="Allure_main" src="images/screens/Allure1.png">
+<img title="Allure1" src="images/screens/Allure1.png">
 </p>
 
 ## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Список проводимых проверок
 
 <p align="center">
-<img title="Allure_suits" src="images/screens/Allure2.png">
+<img title="Allure2" src="images/screens/Allure2.png">
 </p>
 
 
@@ -121,7 +121,7 @@ gradle clean test -Denv=remote
 > 
 
 <p align="center">
-<img title="Telegram_notifications" src="images/screens/telegram_notification.png">
+<img title="telegram_notification" src="images/screens/telegram_notification.png">
 </p>
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
@@ -131,5 +131,5 @@ gradle clean test -Denv=remote
 > Видео для примера 
 
 <p align="center">
-<img title="Selenoid_gif" src="images/gifs/toCart.gif">
+<img title="toCart" src="images/gifs/toCart.gif">
 </p>
