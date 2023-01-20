@@ -102,13 +102,13 @@ gradle clean test -Denv=remote
 ## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Cтраница Allure отчета
 
 <p align="center">
-<img title="Allure1" src="images/screens/Allure1.png">
+<img title="allure1" src="images/screens/allure1.png">
 </p>
 
 ## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Список проводимых проверок
 
 <p align="center">
-<img title="Allure2" src="images/screens/Allure2.png">
+<img title="allure2" src="images/screens/allure2.png">
 </p>
 
 
