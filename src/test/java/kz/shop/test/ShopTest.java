@@ -1,8 +1,5 @@
 package kz.shop.test;
 
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
 import kz.shop.test.config.TestBase;
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.MainPage;
@@ -86,7 +83,7 @@ public class ShopTest extends TestBase {
 
     @Test
     @DisplayName("Тест добавления товара в корзину")
-    public void addProductToBasket() {
+    public void addProductToCart() {
         step("Тестируем добавление товара в корзину", () -> {
             new SearchPage()
                     .closeBanner()

@@ -99,38 +99,37 @@ gradle clean test -Denv=remote
 <img title="Jenkins" src="images/screens/jenkins_job.png">
 </p>
 
-## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Главная страница Allure отчета
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Cтраница Allure отчета
 
 <p align="center">
-<img title="Allure_main" src="images/screens/Allure_main.png">
+<img title="Allure_main" src="images/screens/Allure1.png">
 </p>
 
-### <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Группировка тестов по проверяемому функционалу
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Список проводимых проверок
 
 <p align="center">
-<img title="Allure_suits" src="images/screens/Allure_suits.png">
+<img title="Allure_suits" src="images/screens/Allure2.png">
 </p>
 
-### <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Основной дашборд
 
-<p align="center">
-<img title="Allure_dashboard" src="images/screens/Allure_dashboard.png">
-</p>
 
 ## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
 
-> После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне.
+> После прохождения всех тестов, автоматически отправялется отчет в<code>Telegram</code>,
 > 
-> Информация по настройке и использованию бота <code>https://github.com/qa-guru/allure-notifications</code>
+> 
+> 
 
 <p align="center">
-<img title="Telegram_notifications" src="images/screens/Telegram_notifications.png">
+<img title="Telegram_notifications" src="images/screens/telegram_notification.png">
 </p>
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
 
-> К каждому тесту в отчете прилагается видео. Одно из таких видео представлено ниже.
+> Для каждого теста в отчете прилагается видео.
+> 
+> Видео для примера 
 
 <p align="center">
-<img title="Selenoid_gif" src="images/gifs/Selenoid.gif">
+<img title="Selenoid_gif" src="images/gifs/toCart.gif">
 </p>
