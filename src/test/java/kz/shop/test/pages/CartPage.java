@@ -32,7 +32,7 @@ public class CartPage {
         return this;
     }
 
-    @Step("Провереям доступность кнопки оформить")
+    @Step("Проверяем доступность кнопки оформить")
     public CartPage checkOrderButton() {
         this.cartSubmit.shouldHave(type("button")).shouldHave(value("Оформить заказ"));
         return this;
