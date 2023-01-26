@@ -1,6 +1,5 @@
-package kz.shop.test;
+package kz.shop.test.tests;
 
-import kz.shop.test.config.TestBase;
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
@@ -20,7 +19,7 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты для магазина shop.kz")
-public class ShopTest extends TestBase {
+public class ShopTest extends BaseTest {
 
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
     @ValueSource(strings = {"Наши покупатели выбирают", "Новинки"})
@@ -103,9 +102,15 @@ public class ShopTest extends TestBase {
 
     static Stream<Arguments> verifySidebarTest() {
         return Stream.of(
-                Arguments.of("Смартфоны и гаджеты", List.of("Сотовые телефоны", "Гаджеты", "Программное обеспечение", "Аксессуары")),
-                Arguments.of("Комплектующие", List.of("Все для сборки компьютера", "Дополнительные комплектующие")),
-                Arguments.of("Ноутбуки и компьютеры", List.of("Ноутбуки", "Компьютеры", "Программное обеспечение", "Комплектующие для ноутбуков", "Аксессуары", "Мебель"))
+                Arguments.of(
+                        "Смартфоны и гаджеты",
+                        List.of("Сотовые телефоны", "Гаджеты", "Программное обеспечение", "Аксессуары")),
+                Arguments.of(
+                        "Комплектующие",
+                        List.of("Все для сборки компьютера", "Дополнительные комплектующие")),
+                Arguments.of(
+                        "Ноутбуки и компьютеры",
+                        List.of("Ноутбуки", "Компьютеры", "Программное обеспечение", "Комплектующие для ноутбуков", "Аксессуары", "Мебель"))
         );
     }
 

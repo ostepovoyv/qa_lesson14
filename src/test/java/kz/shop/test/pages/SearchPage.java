@@ -44,9 +44,9 @@ public class SearchPage {
     }
 
     @Step("Поиск товара по артикулу")
-    public SearchPage searchItemByVendorCode(String vendorСode) {
+    public SearchPage searchItemByVendorCode(String vendorCode) {
         this.searchField.click();
-        this.searchFieldMulti.setValue(vendorСode).pressEnter();
+        this.searchFieldMulti.setValue(vendorCode).pressEnter();
         return this;
     }
 
