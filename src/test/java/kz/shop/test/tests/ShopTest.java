@@ -21,11 +21,15 @@ import static io.qameta.allure.Allure.step;
 @DisplayName("Тесты для магазина shop.kz")
 public class ShopTest extends BaseTest {
 
+    MainPage mainPage = new MainPage();
+    SearchPage searchPage = new SearchPage();
+    ProductCardPage productCardPage = new ProductCardPage();
+
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
     @ValueSource(strings = {"Наши покупатели выбирают", "Новинки"})
     public void checkMainPageSection(String value) {
         step("Проверяем наличие разделов на главной странице", () -> {
-            new MainPage().verifySectionTitleText(value);
+            mainPage.verifySectionTitleText(value);
         });
     }
 
@@ -33,7 +37,7 @@ public class ShopTest extends BaseTest {
     @ParameterizedTest(name = "Проверка бокового меню {0}")
     public void verifySidebarTest(String items, List<String> categories) {
         step("Проверка бокового меню", () -> {
-            new MainPage().verifySidebarMenu(items, categories);
+            mainPage.verifySidebarMenu(items, categories);
         });
 
     }
@@ -42,7 +46,7 @@ public class ShopTest extends BaseTest {
     @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
     public void verifyHorizontalMenuTest(String items) {
         step("Проверка горизонтального меню", () -> {
-            new MainPage().verifyHorizontalMenu(items);
+            mainPage.verifyHorizontalMenu(items);
         });
     }
 
@@ -50,7 +54,7 @@ public class ShopTest extends BaseTest {
     @CsvFileSource(resources = "/test.csv")
     public void verifyFooterMenuItems(String items) {
         step("Тестируем пункты меню в футере", () -> {
-            new MainPage().verifyFooter(items);
+            mainPage.verifyFooter(items);
         });
     }
 
@@ -58,12 +62,12 @@ public class ShopTest extends BaseTest {
     @DisplayName("Поиск на сайте shop.kz")
     public void searchTest() {
         step("Тестируем поиск на сайте", () -> {
-            new SearchPage()
+            searchPage
                     .closeBanner()
                     .checkSearchInput()
                     .searchItemByItemName(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
-            new ProductCardPage()
+            productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME);
         });
     }
@@ -72,10 +76,10 @@ public class ShopTest extends BaseTest {
     @DisplayName("Тест карточки товара")
     public void verifyProductCardPage() {
         step("Тестируем страницу карточки товара", () -> {
-            new SearchPage()
+            searchPage
                     .closeBanner()
                     .searchItemByVendorCode(TestData.ITEM_BY_VENDOR_CODE);
-            new ProductCardPage()
+            productCardPage
                     .closePromoBanner()
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME)
                     .checkVendorCodeAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE)
@@ -89,11 +93,11 @@ public class ShopTest extends BaseTest {
     @DisplayName("Тест добавления товара в корзину")
     public void addProductToCart() {
         step("Тестируем добавление товара в корзину", () -> {
-            new SearchPage()
+            searchPage
                     .closeBanner()
                     .searchItemByItemName(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
-            new ProductCardPage()
+            productCardPage
                     .closePromoBanner()
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
                     .addProductToBasket();
