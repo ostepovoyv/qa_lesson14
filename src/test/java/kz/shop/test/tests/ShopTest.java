@@ -32,13 +32,18 @@ public class ShopTest extends BaseTest {
     @MethodSource
     @ParameterizedTest(name = "Проверка бокового меню {0}")
     public void verifySidebarTest(String items, List<String> categories) {
-        new MainPage().verifySidebarMenu(items, categories);
+        step("Проверка бокового меню", () -> {
+            new MainPage().verifySidebarMenu(items, categories);
+        });
+
     }
 
     @ParameterizedTest(name = "Проверка горизонтального меню {0}")
     @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
     public void verifyHorizontalMenuTest(String items) {
-        new MainPage().verifyHorizontalMenu(items);
+        step("Проверка горизонтального меню", () -> {
+            new MainPage().verifyHorizontalMenu(items);
+        });
     }
 
     @ParameterizedTest(name = "Проверка элементов: {0}")
