@@ -26,27 +26,27 @@ public class SearchPage {
 
     @Step("Проверяем наличие поля поиска на главной странице")
     public SearchPage checkSearchInput() {
-        this.searchField.shouldHave(Condition.attribute("placeholder", "Поиск по сайту"));
+        searchField.shouldHave(Condition.attribute("placeholder", "Поиск по сайту"));
         return this;
     }
 
     @Step("Поиск товара по имени")
     public SearchPage searchItemByItemName(String value) {
-        this.searchButton.click();
-        this.searchFieldMulti.setValue(value);
+        searchButton.click();
+        searchFieldMulti.setValue(value);
         return this;
     }
 
     @Step("Проверка результатов поиска в выпадающем списке и переход на карточку товара")
     public SearchPage checkResultAfterSearch(String value) {
-        this.modalViewSearchResult.shouldHave(text(value)).click();
+        modalViewSearchResult.shouldHave(text(value)).click();
         return this;
     }
 
     @Step("Поиск товара по артикулу")
     public SearchPage searchItemByVendorCode(String vendorCode) {
-        this.searchField.click();
-        this.searchFieldMulti.setValue(vendorCode).pressEnter();
+        searchField.click();
+        searchFieldMulti.setValue(vendorCode).pressEnter();
         return this;
     }
 

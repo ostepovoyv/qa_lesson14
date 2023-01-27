@@ -29,31 +29,31 @@ public class MainPage {
     @Step("Проверяем горизонтальное меню")
     public MainPage verifyHorizontalMenu(String items) {
         closeBannerHelper.closeBanner();
-        this.horizontalMenu.filter(visible).shouldHave(CollectionCondition.texts(items));
+        horizontalMenu.filter(visible).shouldHave(CollectionCondition.texts(items));
         return this;
     }
 
     @Step("Проверяем боковое меню и входящие категории")
     public MainPage verifySidebarMenu(String items, List<String> categories) {
         closeBannerHelper.closeBanner();
-        this.sidebar.find(text(items)).click();
+        sidebar.find(text(items)).click();
         closeBannerHelper.closeBannerPromotions();
-        this.catalogPageTitle.shouldHave(text(items));
-        this.catalogItemTitle.filter(visible).shouldHave(CollectionCondition.texts(categories));
+        catalogPageTitle.shouldHave(text(items));
+        catalogItemTitle.filter(visible).shouldHave(CollectionCondition.texts(categories));
         return this;
     }
 
     @Step("Проверяем наличие разделов на главной странице")
     public MainPage verifySectionTitleText(String value) {
         closeBannerHelper.closeBanner();
-        this.widgetTitle.shouldHave(CollectionCondition.itemWithText(value));
+        widgetTitle.shouldHave(CollectionCondition.itemWithText(value));
         return this;
     }
 
     @Step("Проверяем пукты меню футера и входящие в них подпункты")
     public MainPage verifyFooter(String header) {
         closeBannerHelper.closeBanner();
-        this.footerHeaderMenu.find(text(header)).shouldHave(appear);
+        footerHeaderMenu.find(text(header)).shouldHave(appear);
         return this;
     }
 }

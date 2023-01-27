@@ -16,25 +16,25 @@ public class CartPage {
 
     @Step("Переход в корзину")
     public CartPage goToCart() {
-        this.cartButton.click();
+        cartButton.click();
         return this;
     }
 
     @Step("Проверяем, переход в корзину")
     public CartPage checkCartPage() {
-        this.cartTitle.shouldHave(text("Моя корзина"));
+        cartTitle.shouldHave(text("Моя корзина"));
         return this;
     }
 
     @Step("Проверяем, добавленный товар в корзине")
     public CartPage checkProductInCart(String value) {
-        this.productNameInCart.shouldHave(text(value));
+        productNameInCart.shouldHave(text(value));
         return this;
     }
 
     @Step("Проверяем доступность кнопки оформить")
     public CartPage checkOrderButton() {
-        this.cartSubmit.shouldHave(type("button")).shouldHave(value("Оформить заказ"));
+        cartSubmit.shouldHave(type("button")).shouldHave(value("Оформить заказ"));
         return this;
     }
 }
