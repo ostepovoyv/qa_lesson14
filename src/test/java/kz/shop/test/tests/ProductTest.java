@@ -14,6 +14,10 @@ import static io.qameta.allure.Allure.step;
 @DisplayName("Тесты с продуктами в интернет магазине shop.kz")
 public class ProductTest extends BaseTest {
 
+    /**
+     * ToDo добавить тест на удаление из корзины
+     * */
+
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
     CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
