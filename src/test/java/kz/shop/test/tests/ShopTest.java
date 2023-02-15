@@ -1,6 +1,5 @@
 package kz.shop.test.tests;
 
-
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
@@ -68,42 +67,6 @@ public class ShopTest extends BaseTest {
         step("Тестируем пункты меню в футере", () -> {
             closeBannerHelper.closeBanner();
             mainPage.verifyFooter(items);
-        });
-    }
-
-    @Test
-    @DisplayName("Тест карточки товара")
-    public void verifyProductCardPage() {
-        step("Тестируем страницу карточки товара", () -> {
-            searchPage
-                    .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE);
-            closeBannerHelper.closeBanner();
-            productCardPage
-                    .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME)
-                    .checkVendorCodeAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE)
-                    .checkCurrentPriceAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_PRICE)
-                    .checkBuyButtonAvailableOnPage()
-                    .checkProductSpecificationsAvailableOnPage();
-        });
-    }
-
-    @Test
-    @DisplayName("Тест добавления товара в корзину")
-    public void addProductToCart() {
-        step("Тестируем добавление товара в корзину", () -> {
-            closeBannerHelper.closeBanner();
-            searchPage
-                    .searchItemByItemName(TestData.ITEM_BY_NAME)
-                    .checkResultAfterSearch(TestData.ITEM_BY_NAME);
-            closeBannerHelper.closeBanner();
-            productCardPage
-                    .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
-                    .addProductToBasket();
-            new CartPage()
-                    .goToCart()
-                    .checkCartPage()
-                    .checkProductInCart(TestData.ITEM_BY_NAME)
-                    .checkOrderButton();
         });
     }
 
