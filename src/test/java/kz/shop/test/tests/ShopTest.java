@@ -1,13 +1,11 @@
 package kz.shop.test.tests;
 
-import kz.shop.test.pages.CartPage;
+
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
-import kz.shop.test.testdata.TestData;
 import kz.shop.test.utils.CloseBannerHelper;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -21,8 +19,6 @@ import static io.qameta.allure.Allure.step;
 public class ShopTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
-    SearchPage searchPage = new SearchPage();
-    ProductCardPage productCardPage = new ProductCardPage();
     CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
 
     /**
