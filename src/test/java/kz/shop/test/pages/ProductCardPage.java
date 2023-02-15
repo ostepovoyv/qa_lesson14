@@ -9,8 +9,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProductCardPage {
 
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
-
     private final SelenideElement
             pageTitle = $("#pagetitle"),
             vendorCode = $(".bx-card-mark"),
@@ -18,24 +16,10 @@ public class ProductCardPage {
             productSpecifications = $("#bx-card-features"),
             buyButton = $("#product-card-buttons");
 
-
-    @Step("Закрываем высплывающие окна")
-    public ProductCardPage closeBanner() {
-        closeBannerHelper.closeBanner();
-        return this;
-    }
-
-    @Step("Закрываем высплывающие окна")
-    public ProductCardPage closePromoBanner() {
-        closeBannerHelper.closeBannerPromotions();
-        return this;
-    }
-
     @Step("Проверка наличия названия товара")
     public ProductCardPage checkPageTitleAvailableOnPage(String value) {
         pageTitle.shouldHave(visible).shouldHave(text(value));
         return this;
-
     }
 
     @Step("Проверка наличия Артикула товара")

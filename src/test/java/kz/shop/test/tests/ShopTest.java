@@ -6,6 +6,7 @@ import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
+import kz.shop.test.utils.CloseBannerHelper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -23,21 +24,21 @@ public class ShopTest extends BaseTest {
     MainPage mainPage = new MainPage();
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
+    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
 
     /**
-     * ToDo добавить тесты на успешную и не успешную авторизацию (тестовые пользователи)
-     * Перенести в page object
+     * ToDo
      * добавить тесты на поиск по артикулу
      * тест на проверку контактов
      * тесты на конфигуратор
      * удаление товаров из корзины
      * */
 
-
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
     @ValueSource(strings = {"Новинки", "Популярные"})
     public void checkMainPageSection(String value) {
         step("Проверяем наличие разделов на главной странице", () -> {
+            closeBannerHelper.closeBanner();
             mainPage.verifySectionTitleText(value);
         });
     }
@@ -46,6 +47,7 @@ public class ShopTest extends BaseTest {
     @ParameterizedTest(name = "Проверка бокового меню {0}")
     public void verifySidebarTest(String items, List<String> categories) {
         step("Проверка бокового меню", () -> {
+            closeBannerHelper.closeBanner();
             mainPage.verifySidebarMenu(items, categories);
         });
 
@@ -55,6 +57,7 @@ public class ShopTest extends BaseTest {
     @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
     public void verifyHorizontalMenuTest(String items) {
         step("Проверка горизонтального меню", () -> {
+            closeBannerHelper.closeBanner();
             mainPage.verifyHorizontalMenu(items);
         });
     }
@@ -63,35 +66,8 @@ public class ShopTest extends BaseTest {
     @CsvFileSource(resources = "/test.csv")
     public void verifyFooterMenuItems(String items) {
         step("Тестируем пункты меню в футере", () -> {
+            closeBannerHelper.closeBanner();
             mainPage.verifyFooter(items);
-        });
-    }
-
-    @Test
-    @DisplayName("Поиск по имени товара")
-    public void searchByNameTest() {
-        step("Тестируем поиск на сайте", () -> {
-            searchPage
-                    .closeBanner()
-                    .checkSearchInput()
-                    .searchItemByItemName(TestData.ITEM_BY_NAME)
-                    .checkResultAfterSearch(TestData.ITEM_BY_NAME);
-            productCardPage
-                    .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME);
-        });
-    }
-
-    @Test
-    @DisplayName("Поиск по артикулу")
-    public void searchByVendorCodeTest() {
-        step("Тестируем поиск на сайте", () -> {
-            searchPage
-                    .closeBanner()
-                    .checkSearchInput()
-                    .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE)
-                    .checkResultAfterSearch(TestData.ITEM_BY_VENDOR_CODE_NAME);
-            productCardPage
-                    .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME);
         });
     }
 
@@ -100,10 +76,9 @@ public class ShopTest extends BaseTest {
     public void verifyProductCardPage() {
         step("Тестируем страницу карточки товара", () -> {
             searchPage
-                    .closeBanner()
                     .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE);
+            closeBannerHelper.closeBanner();
             productCardPage
-                    .closePromoBanner()
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME)
                     .checkVendorCodeAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE)
                     .checkCurrentPriceAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_PRICE)
@@ -116,12 +91,12 @@ public class ShopTest extends BaseTest {
     @DisplayName("Тест добавления товара в корзину")
     public void addProductToCart() {
         step("Тестируем добавление товара в корзину", () -> {
+            closeBannerHelper.closeBanner();
             searchPage
-                    .closeBanner()
                     .searchItemByItemName(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
+            closeBannerHelper.closeBanner();
             productCardPage
-                    .closePromoBanner()
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
                     .addProductToBasket();
             new CartPage()

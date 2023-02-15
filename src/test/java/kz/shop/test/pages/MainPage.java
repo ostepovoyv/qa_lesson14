@@ -5,7 +5,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import kz.shop.test.utils.CloseBannerHelper;
-
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
@@ -32,14 +31,12 @@ public class MainPage {
 
     @Step("Проверяем горизонтальное меню")
     public MainPage verifyHorizontalMenu(String items) {
-        closeBannerHelper.closeBanner();
         horizontalMenu.filter(visible).shouldHave(CollectionCondition.texts(items));
         return this;
     }
 
     @Step("Проверяем боковое меню и входящие категории")
     public MainPage verifySidebarMenu(String items, List<String> categories) {
-        closeBannerHelper.closeBanner();
         sidebar.find(text(items)).click();
         closeBannerHelper.closeBannerPromotions();
         catalogPageTitle.shouldHave(text(items));
@@ -49,14 +46,12 @@ public class MainPage {
 
     @Step("Проверяем наличие разделов на главной странице")
     public MainPage verifySectionTitleText(String value) {
-        closeBannerHelper.closeBanner();
         recommenderBlockTitle.shouldHave(CollectionCondition.itemWithText(value));
         return this;
     }
 
     @Step("Проверяем пукты меню футера и входящие в них подпункты")
     public MainPage verifyFooter(String header) {
-        closeBannerHelper.closeBanner();
         footerHeaderMenu.find(text(header)).shouldHave(appear);
         return this;
     }
