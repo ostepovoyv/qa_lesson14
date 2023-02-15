@@ -1,10 +1,12 @@
 package kz.shop.test.tests;
 
+import com.codeborne.selenide.Condition;
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
+import kz.shop.test.utils.CloseBannerHelper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +18,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты для магазина shop.kz")
@@ -24,6 +27,44 @@ public class ShopTest extends BaseTest {
     MainPage mainPage = new MainPage();
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
+
+    /**
+     * ToDo добавить тесты на успешную и не успешную авторизацию (тестовые пользователи)
+     * Перенести в page object
+     * добавить тесты на поиск по артикулу
+     * тест на проверку контактов
+     * тесты на конфигуратор
+     * удаление товаров из корзины
+     * */
+
+    @Test
+    public void successfulAuthorizationTest(){
+        step("Успешная авторизация на сайте", () -> {
+            new CloseBannerHelper().closeBanner();
+            $("#btn_show_auth").shouldHave(Condition.text("Вход")).click();
+            //проверка открытия модального окна авторизации
+            $("#simplemodal-container").shouldHave(Condition.text("Вход в интернет-магазин"));
+            $("#ppUSER_LOGIN").setValue("123");
+            $("#ppUSER_PASSWORD").setValue("123");
+            $("#login_btn").click();
+            $("a[href=\"/personal/\"]").shouldHave(Condition.text("Личный кабинет")).click();
+            $("#pagetitle").shouldHave(Condition.text("Персональный раздел"));
+        });
+    }
+
+    @Test
+    public void unsuccessfulAuthorizationTest(){
+        step("Авторизация на сайте, пользователь не зарегестрирован", () -> {
+            new CloseBannerHelper().closeBanner();
+            $("#btn_show_auth").shouldHave(Condition.text("Вход")).click();
+            //проверка открытия модального окна авторизации
+            $("#simplemodal-container").shouldHave(Condition.text("Вход в интернет-магазин"));
+            $("#ppUSER_LOGIN").setValue("unregisteredUser");
+            $("#ppUSER_PASSWORD").setValue("unregisteredPassword");
+            $("#login_btn").click();
+            $("#auth-status").shouldHave(Condition.text("Неверный логин или пароль.1"));
+        });
+    }
 
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
     @ValueSource(strings = {"Наши покупатели выбирают", "Новинки"})
