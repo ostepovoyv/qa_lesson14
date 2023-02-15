@@ -21,7 +21,6 @@ public class MainPage {
             horizontalMenu = $$(".bx-inclinkstop-container"),
             sidebar = $$(".bx-nav-1-lvl"),
             catalogItemTitle = $$(".bx_catalog_tile_title"),
-            widgetTitle = $$(".widgettitle"),
             recommenderBlockTitle = $$(".recommender-block-title"),
             footerHeaderMenu = $$(".footer_header_btn"),
             listLine = $$(".list-line");
@@ -30,7 +29,6 @@ public class MainPage {
             pageTitle = $("#pagetitle"),
             authButton = $("#btn_show_auth"),
             personalSection = $("a[href=\"/personal/\"]"),
-            personalSectionTitle = $("#pagetitle"),
             siteHeaderInfo = $(".bx-inc-orginfo"),
             navbar = $(".fixed-navbar");
 
@@ -71,7 +69,7 @@ public class MainPage {
     @Step("Выполняем проверки после авторизации")
     public MainPage checkAfterLogin(String ps, String psTitle) {
         personalSection.shouldHave(text(ps)).click();
-        personalSectionTitle.shouldHave(text(psTitle));
+        pageTitle.shouldHave(text(psTitle));
         return this;
     }
 

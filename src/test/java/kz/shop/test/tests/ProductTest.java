@@ -1,7 +1,6 @@
 package kz.shop.test.tests;
 
 import kz.shop.test.pages.CartPage;
-import kz.shop.test.pages.MainPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;

@@ -1,11 +1,8 @@
 package kz.shop.test.tests;
 
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
+
 import kz.shop.test.pages.MainPage;
-import kz.shop.test.pages.ProductCardPage;
-import kz.shop.test.pages.SearchPage;
 import kz.shop.test.utils.CloseBannerHelper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,13 +11,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
-
 import java.util.List;
 import java.util.stream.Stream;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты для магазина shop.kz")
@@ -52,7 +44,6 @@ public class ShopTest extends BaseTest {
             closeBannerHelper.closeBanner();
             mainPage.verifySidebarMenu(items, categories);
         });
-
     }
 
     @ParameterizedTest(name = "Проверка горизонтального меню {0}")
@@ -92,6 +83,12 @@ public class ShopTest extends BaseTest {
         step("Проверка контактной информации в навигационном меню", () -> {
             mainPage.checkContactInfoInNavbar(" +7 771 920-19-20");
         });
+    }
+
+    @Test
+    @DisplayName("Проверка экспорта в xls из конфигуратора ПК")
+    public void checkExportToXlsInPcConfigurator(){
+
     }
 
     static Stream<Arguments> verifySidebarTest() {

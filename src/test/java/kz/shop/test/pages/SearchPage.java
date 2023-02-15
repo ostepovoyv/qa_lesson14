@@ -18,11 +18,6 @@ public class SearchPage {
             searchButton = $(".search-hover__submit"),
             modalViewSearchResult = $(".autocomplete-products__item-title");
 
-    @Step("Закрываем всплывающие окна")
-    public SearchPage closeBanner() {
-        closeBannerHelper.closeBanner();
-        return this;
-    }
 
     @Step("Проверяем наличие поля поиска на главной странице")
     public SearchPage checkSearchInput() {
