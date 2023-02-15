@@ -20,10 +20,14 @@ public class MainPage {
             sidebar = $$(".bx-nav-1-lvl"),
             catalogItemTitle = $$(".bx_catalog_tile_title"),
             widgetTitle = $$(".widgettitle"),
+            recommenderBlockTitle = $$(".recommender-block-title"),
             footerHeaderMenu = $$(".footer_header_btn");
 
     private final SelenideElement
-            catalogPageTitle = $("#pagetitle");
+            catalogPageTitle = $("#pagetitle"),
+            authButton = $("#btn_show_auth"),
+            personalSection = $("a[href=\"/personal/\"]"),
+            personalSectionTitle = $("#pagetitle");
 
 
     @Step("Проверяем горизонтальное меню")
@@ -46,7 +50,7 @@ public class MainPage {
     @Step("Проверяем наличие разделов на главной странице")
     public MainPage verifySectionTitleText(String value) {
         closeBannerHelper.closeBanner();
-        widgetTitle.shouldHave(CollectionCondition.itemWithText(value));
+        recommenderBlockTitle.shouldHave(CollectionCondition.itemWithText(value));
         return this;
     }
 
@@ -54,6 +58,19 @@ public class MainPage {
     public MainPage verifyFooter(String header) {
         closeBannerHelper.closeBanner();
         footerHeaderMenu.find(text(header)).shouldHave(appear);
+        return this;
+    }
+
+    @Step("Переходим к форме авторизации")
+    public MainPage goToAuthModalForm(String value){
+        authButton.shouldHave(text(value)).click();
+        return this;
+    }
+
+    @Step("Выполняем проверки после авторизации")
+    public MainPage checkAfterLogin(String ps, String psTitle){
+        personalSection.shouldHave(text(ps)).click();
+        personalSectionTitle.shouldHave(text(psTitle));
         return this;
     }
 }

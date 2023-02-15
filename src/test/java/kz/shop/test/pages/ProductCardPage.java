@@ -35,6 +35,7 @@ public class ProductCardPage {
     public ProductCardPage checkPageTitleAvailableOnPage(String value) {
         pageTitle.shouldHave(visible).shouldHave(text(value));
         return this;
+
     }
 
     @Step("Проверка наличия Артикула товара")
