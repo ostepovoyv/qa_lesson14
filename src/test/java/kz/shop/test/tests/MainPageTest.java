@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты для магазина shop.kz")
-public class ShopTest extends BaseTest {
+public class MainPageTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
     Helpers helpers = new Helpers();
@@ -23,7 +23,6 @@ public class ShopTest extends BaseTest {
      * ToDo
      * тест на сравнение
      * тест сортировки
-     * удаление товаров из корзины
      * Добавление в корзину с главной страницы
      */
 

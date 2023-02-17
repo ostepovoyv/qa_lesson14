@@ -1,6 +1,7 @@
 package kz.shop.test.tests;
 
 import kz.shop.test.pages.CartPage;
+import kz.shop.test.pages.PenCatalogPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
@@ -8,9 +9,11 @@ import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static kz.shop.test.testdata.Endpoints.BASKET;
+
+
 
 @DisplayName("Тесты с товарами в интернет магазине shop.kz")
 public class ProductTest extends BaseTest {
@@ -18,6 +21,7 @@ public class ProductTest extends BaseTest {
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
     CartPage cartPage = new CartPage();
+    PenCatalogPage penCatalogPage = new PenCatalogPage();
     Helpers helpers = new Helpers();
 
     @Test
@@ -74,6 +78,14 @@ public class ProductTest extends BaseTest {
                     .deleteProduct()
                     .checkAfterDelete();
         });
+    }
+
+    @Test
+    @DisplayName("Проверка сортировки по имени")
+    public void sortingTest() {
+        penCatalogPage
+                .openPenCatalog()
+                .checkSortByName();
     }
 
 }
