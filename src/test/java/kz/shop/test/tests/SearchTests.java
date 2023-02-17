@@ -3,7 +3,7 @@ package kz.shop.test.tests;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +14,13 @@ public class SearchTests extends BaseTest {
 
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
+    Helpers helpers = new Helpers();
 
     @Test
-    @DisplayName("Поиск по имени товара")
+    @DisplayName("Поиск по названию товара")
     public void searchByNameTest() {
-        step("Тестируем поиск на сайте", () -> {
-            closeBannerHelper.closeBanner();
+        step("Тестируем поиск на сайте по названию", () -> {
+            helpers.closeBanner();
             searchPage
                     .checkSearchInput()
                     .searchItemByItemName(TestData.ITEM_BY_NAME)
@@ -33,8 +33,8 @@ public class SearchTests extends BaseTest {
     @Test
     @DisplayName("Поиск по артикулу")
     public void searchByVendorCodeTest() {
-        step("Тестируем поиск на сайте", () -> {
-            closeBannerHelper.closeBanner();
+        step("Тестируем поиск на сайте по артикулу", () -> {
+            helpers.closeBanner();
             searchPage
                     .checkSearchInput()
                     .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE)

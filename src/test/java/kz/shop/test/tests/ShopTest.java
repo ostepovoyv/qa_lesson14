@@ -1,9 +1,7 @@
 package kz.shop.test.tests;
 
-
-
 import kz.shop.test.pages.MainPage;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,20 +17,21 @@ import static io.qameta.allure.Allure.step;
 public class ShopTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
+    Helpers helpers = new Helpers();
 
     /**
      * ToDo
-     * тест на проверку контактов
-     * тесты на конфигуратор
+     * тест на сравнение
+     * тест сортировки
      * удаление товаров из корзины
+     * Добавление в корзину с главной страницы
      */
 
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
     @ValueSource(strings = {"Новинки", "Популярные"})
     public void checkMainPageSection(String value) {
         step("Проверяем наличие разделов на главной странице", () -> {
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             mainPage.verifySectionTitleText(value);
         });
     }
@@ -41,7 +40,7 @@ public class ShopTest extends BaseTest {
     @ParameterizedTest(name = "Проверка бокового меню {0}")
     public void verifySidebarTest(String items, List<String> categories) {
         step("Проверка бокового меню", () -> {
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             mainPage.verifySidebarMenu(items, categories);
         });
     }
@@ -50,7 +49,7 @@ public class ShopTest extends BaseTest {
     @ValueSource(strings = {"Доставка", "Оплата", "Гарантия надёжности"})
     public void verifyHorizontalMenuTest(String items) {
         step("Проверка горизонтального меню", () -> {
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             mainPage.verifyHorizontalMenu(items);
         });
     }
@@ -59,7 +58,7 @@ public class ShopTest extends BaseTest {
     @CsvFileSource(resources = "/test.csv")
     public void verifyFooterMenuItems(String items) {
         step("Тестируем пункты меню в футере", () -> {
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             mainPage.verifyFooter(items);
         });
     }
@@ -67,7 +66,7 @@ public class ShopTest extends BaseTest {
     @Test
     @DisplayName("Проверка наличия контактной информации")
     public void checkContactInformation() {
-        closeBannerHelper.closeBanner();
+        helpers.closeBanner();
         step("Проверка контактной информации в шапке на главной странице", () -> {
             mainPage.checkContactInfoInHeader(" +7 771 920-19-20");
         });
@@ -83,12 +82,6 @@ public class ShopTest extends BaseTest {
         step("Проверка контактной информации в навигационном меню", () -> {
             mainPage.checkContactInfoInNavbar(" +7 771 920-19-20");
         });
-    }
-
-    @Test
-    @DisplayName("Проверка экспорта в xls из конфигуратора ПК")
-    public void checkExportToXlsInPcConfigurator(){
-
     }
 
     static Stream<Arguments> verifySidebarTest() {

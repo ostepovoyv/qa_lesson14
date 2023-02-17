@@ -2,11 +2,10 @@ package kz.shop.test.utils;
 
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class CloseBannerHelper {
+public class Helpers {
 
     @Step("Принудительно закрываем баннеры")
     public void closeBanner(){

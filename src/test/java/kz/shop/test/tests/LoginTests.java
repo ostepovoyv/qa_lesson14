@@ -2,7 +2,7 @@ package kz.shop.test.tests;
 
 import kz.shop.test.pages.AuthFormPage;
 import kz.shop.test.pages.MainPage;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Test;
 public class LoginTests extends BaseTest {
 
     MainPage mainPage = new MainPage();
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
+    Helpers helpers = new Helpers();
     AuthFormPage authFormPage = new AuthFormPage();
 
     @Test
     @DisplayName("Успешная авторизация на сайте")
     public void successfulAuthorizationTest() {
-        closeBannerHelper.closeBanner();
+        helpers.closeBanner();
         mainPage.goToAuthModalForm("Вход");
         authFormPage
                 .checkModalFormTitle("Вход в интернет-магазин")
@@ -28,7 +28,7 @@ public class LoginTests extends BaseTest {
     @Test
     @DisplayName("Авторизация на сайте, пользователь не зарегестрирован")
     public void unsuccessfulAuthorizationTest() {
-        closeBannerHelper.closeBanner();
+        helpers.closeBanner();
         mainPage.goToAuthModalForm("Вход");
         authFormPage
                 .checkModalFormTitle("Вход в интернет-магазин")

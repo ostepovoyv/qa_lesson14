@@ -2,10 +2,9 @@ package kz.shop.test.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import kz.shop.test.utils.CloseBannerHelper;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+
 
 public class ProductCardPage {
 
@@ -49,6 +48,7 @@ public class ProductCardPage {
     @Step("Добавляем выбранный товар в корзину")
     public ProductCardPage addProductToBasket(){
         buyButton.click();
+        buyButton.shouldHave(text("В корзине"));
         return this;
     }
 

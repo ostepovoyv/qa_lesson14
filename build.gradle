@@ -36,7 +36,9 @@ dependencies {
             'org.junit.jupiter:junit-jupiter:5.9.0',
             'org.slf4j:slf4j-simple:1.7.32',
             'io.github.bonigarcia:webdrivermanager:5.2.1',
-            'org.aeonbits.owner:owner:1.0.12'
+            'org.aeonbits.owner:owner:1.0.12',
+            'org.assertj:assertj-core:3.23.1',
+            'com.codeborne:xls-test:1.4.3'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 }

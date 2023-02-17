@@ -4,30 +4,29 @@ import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
+import static kz.shop.test.testdata.Endpoints.BASKET;
 
-@DisplayName("Тесты с продуктами в интернет магазине shop.kz")
+@DisplayName("Тесты с товарами в интернет магазине shop.kz")
 public class ProductTest extends BaseTest {
-
-    /**
-     * ToDo добавить тест на удаление из корзины
-     * */
 
     SearchPage searchPage = new SearchPage();
     ProductCardPage productCardPage = new ProductCardPage();
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
+    CartPage cartPage = new CartPage();
+    Helpers helpers = new Helpers();
 
     @Test
     @DisplayName("Тест карточки товара")
     public void verifyProductCardPage() {
         step("Тестируем страницу карточки товара", () -> {
+            helpers.closeBanner();
             searchPage
-                    .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE);
-            closeBannerHelper.closeBanner();
+                    .searchItemByVendorCode(TestData.ITEM_BY_VENDOR_CODE);
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME)
                     .checkVendorCodeAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE)
@@ -41,19 +40,39 @@ public class ProductTest extends BaseTest {
     @DisplayName("Тест добавления товара в корзину")
     public void addProductToCart() {
         step("Тестируем добавление товара в корзину", () -> {
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             searchPage
                     .searchItemByItemName(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
-            closeBannerHelper.closeBanner();
+            helpers.closeBanner();
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
                     .addProductToBasket();
-            new CartPage()
+            cartPage
                     .goToCart()
                     .checkCartPage()
                     .checkProductInCart(TestData.ITEM_BY_NAME)
                     .checkOrderButton();
+        });
+    }
+
+    @Test
+    @DisplayName("Тест удаления товара из корзины")
+    public void deleteProductFromCart() {
+        step("Тестируем удаление товара из корзины", () -> {
+            helpers.closeBanner();
+            searchPage
+                    .searchItemByItemName(TestData.ITEM_BY_NAME)
+                    .checkResultAfterSearch(TestData.ITEM_BY_NAME);
+            helpers.closeBanner();
+            productCardPage
+                    .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
+                    .addProductToBasket();
+            open(BASKET);
+            cartPage
+                    .checkProductInCart(TestData.ITEM_BY_NAME)
+                    .deleteProduct()
+                    .checkAfterDelete();
         });
     }
 

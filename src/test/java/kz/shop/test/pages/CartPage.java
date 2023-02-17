@@ -12,7 +12,8 @@ public class CartPage {
             cartButton = $(".hub-i-cart-link"),
             cartTitle = $("#pagetitle"),
             productNameInCart = $(".cart-bill-name"),
-            cartSubmit = $("#CartSubmit");
+            cartSubmit = $("#CartSubmit"),
+            deleteButton = $(".cart__rem-item");
 
     @Step("Переход в корзину")
     public CartPage goToCart() {
@@ -35,6 +36,18 @@ public class CartPage {
     @Step("Проверяем доступность кнопки оформить")
     public CartPage checkOrderButton() {
         cartSubmit.shouldHave(type("button")).shouldHave(value("Оформить заказ"));
+        return this;
+    }
+
+    @Step("Удаление продукта из корзины")
+    public CartPage deleteProduct(){
+        deleteButton.click();
+        return this;
+    }
+
+    @Step("Проверка корзины после удаления")
+    public CartPage checkAfterDelete(){
+        productNameInCart.shouldNot(exist);
         return this;
     }
 }

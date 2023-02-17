@@ -3,14 +3,13 @@ package kz.shop.test.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class SearchPage {
-
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
 
     private final SelenideElement
             searchField = $(".search-hover__field"),

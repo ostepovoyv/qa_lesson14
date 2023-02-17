@@ -4,7 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import kz.shop.test.utils.CloseBannerHelper;
+import kz.shop.test.utils.Helpers;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    CloseBannerHelper closeBannerHelper = new CloseBannerHelper();
+    Helpers helpers = new Helpers();
 
     private final ElementsCollection
             horizontalMenu = $$(".bx-inclinkstop-container"),
@@ -42,7 +42,7 @@ public class MainPage {
     @Step("Проверяем боковое меню и входящие категории")
     public MainPage verifySidebarMenu(String items, List<String> categories) {
         sidebar.find(text(items)).click();
-        closeBannerHelper.closeBannerPromotions();
+        helpers.closeBannerPromotions();
         pageTitle.shouldHave(text(items));
         catalogItemTitle.filter(visible).shouldHave(texts(categories));
         return this;
