@@ -7,7 +7,6 @@ import io.qameta.allure.Step;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -21,6 +20,7 @@ public class PriceListPage {
             pagetitle = $("#pagetitle"),
             retailPriceList = $("#li_76476"),
             servicesPriceList = $("#li_83700");
+
 
     @Step("Переходим на страницу прайс листов")
     public PriceListPage openPriceListPage(String value) {
