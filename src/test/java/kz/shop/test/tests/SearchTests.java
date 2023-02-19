@@ -1,5 +1,6 @@
 package kz.shop.test.tests;
 
+import io.qameta.allure.*;
 import kz.shop.test.pages.ProductCardPage;
 import kz.shop.test.pages.SearchPage;
 import kz.shop.test.testdata.TestData;
@@ -9,6 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
+@Epic("shop.kz")
+@Feature("Search")
+@Owner("ostepovoyv")
 @DisplayName("Тесты на поиск товара в интернет магазине shop.kz")
 public class SearchTests extends BaseTest {
 
@@ -23,7 +27,7 @@ public class SearchTests extends BaseTest {
             helpers.closeBanner();
             searchPage
                     .checkSearchInput()
-                    .searchItemByItemName(TestData.ITEM_BY_NAME)
+                    .searchItem(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME);
@@ -37,7 +41,7 @@ public class SearchTests extends BaseTest {
             helpers.closeBanner();
             searchPage
                     .checkSearchInput()
-                    .searchItemByItemName(TestData.ITEM_BY_VENDOR_CODE)
+                    .searchItem(TestData.ITEM_BY_VENDOR_CODE)
                     .checkResultAfterSearch(TestData.ITEM_BY_VENDOR_CODE_NAME);
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME);

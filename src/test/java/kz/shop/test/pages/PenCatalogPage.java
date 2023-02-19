@@ -31,8 +31,6 @@ public class PenCatalogPage {
         filterName.click();
         List<String> sortedItemsNames = itemName.texts();
         assertThat(actualItemsNames, is(sortedItemsNames));
-        System.out.println(actualItemsNames);
-        System.out.println(sortedItemsNames);
         return this;
     }
 

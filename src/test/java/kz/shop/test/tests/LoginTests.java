@@ -1,11 +1,15 @@
 package kz.shop.test.tests;
 
+import io.qameta.allure.*;
 import kz.shop.test.pages.AuthFormPage;
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@Epic("shop.kz")
+@Feature("Login")
+@Owner("ostepovoyv")
 @DisplayName("Тесты авторизации в интернет магазине shop.kz")
 public class LoginTests extends BaseTest {
 

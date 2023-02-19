@@ -3,11 +3,9 @@ package kz.shop.test.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import kz.shop.test.utils.Helpers;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class SearchPage {
 
@@ -25,7 +23,7 @@ public class SearchPage {
     }
 
     @Step("Поиск товара по имени")
-    public SearchPage searchItemByItemName(String value) {
+    public SearchPage searchItem(String value) {
         searchButton.click();
         searchFieldMulti.setValue(value);
         return this;

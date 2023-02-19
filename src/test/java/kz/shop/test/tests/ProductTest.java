@@ -1,5 +1,6 @@
 package kz.shop.test.tests;
 
+import io.qameta.allure.*;
 import kz.shop.test.pages.CartPage;
 import kz.shop.test.pages.PenCatalogPage;
 import kz.shop.test.pages.ProductCardPage;
@@ -13,8 +14,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static kz.shop.test.testdata.Endpoints.BASKET;
 
-
-
+@Epic("shop.kz")
+@Feature("Product")
+@Owner("ostepovoyv")
 @DisplayName("Тесты с товарами в интернет магазине shop.kz")
 public class ProductTest extends BaseTest {
 
@@ -46,7 +48,7 @@ public class ProductTest extends BaseTest {
         step("Тестируем добавление товара в корзину", () -> {
             helpers.closeBanner();
             searchPage
-                    .searchItemByItemName(TestData.ITEM_BY_NAME)
+                    .searchItem(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
             helpers.closeBanner();
             productCardPage
@@ -66,7 +68,7 @@ public class ProductTest extends BaseTest {
         step("Тестируем удаление товара из корзины", () -> {
             helpers.closeBanner();
             searchPage
-                    .searchItemByItemName(TestData.ITEM_BY_NAME)
+                    .searchItem(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
             helpers.closeBanner();
             productCardPage

@@ -1,5 +1,6 @@
 package kz.shop.test.tests;
 
+import io.qameta.allure.*;
 import kz.shop.test.pages.MainPage;
 import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +14,10 @@ import java.util.List;
 import java.util.stream.Stream;
 import static io.qameta.allure.Allure.step;
 
-@DisplayName("Тесты для магазина shop.kz")
+@Epic("shop.kz")
+@Feature("Main")
+@Owner("ostepovoyv")
+@DisplayName("Тесты на главной странице магазина shop.kz")
 public class MainPageTest extends BaseTest {
 
     MainPage mainPage = new MainPage();
@@ -21,6 +25,9 @@ public class MainPageTest extends BaseTest {
 
     /**
      * ToDo
+     * перенести входные даныне в отдельный класс
+     *  добавить объект
+     *  вынести инициализацию объектов в отдельный класс
      * тест на сравнение
      * тест сортировки
      * Добавление в корзину с главной страницы

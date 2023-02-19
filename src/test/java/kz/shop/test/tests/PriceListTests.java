@@ -1,12 +1,15 @@
 package kz.shop.test.tests;
 
+import io.qameta.allure.*;
 import kz.shop.test.pages.PriceListPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 
-
-@DisplayName("Проверка доступности и содержимого прайс-листов")
+@Epic("shop.kz")
+@Feature("Price")
+@Owner("ostepovoyv")
+@DisplayName("Тесты доступности и содержимого прайс-листов")
 public class PriceListTests extends BaseTest {
 
     PriceListPage priceListPage = new PriceListPage();
