@@ -1,20 +1,43 @@
-# Проект по автоматизации тестирования интернет-магазина shop.kz
+# Дипломный проект по тестированию интернет-магазина [shop.kz](https://shop.kz/)
 
-## 	Содержание
+## :open_book: Содержание:
 
-> ➠ [Покрытый функционал](#покрытый-функционал)
->
-> ➠ [Технологический стек](#технологический-стек)
->
-> ➠ [Запуск тестов ](#запуск-тестов)
->
-> ➠ [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
->
-> ➠ [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
->
-> ➠ [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
+- [Технологии и инструменты](#:gear:Технологии и инструменты)
+- [Тест кейсы](#Тест кейсы)
+- [Запуск тестов ](#запуск-тестов)
+- [Отчет о результатах тестирования в Allure Report](#-главная-страница-allure-отчета)
+- [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+- [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
 
-##  Покрытый функционал
+
+## :gear: Технологии и инструменты
+
+<p align="left">
+<a href="https://www.jetbrains.com/idea/"><img src="media/logo/Intelij_IDEA.svg" width="50" height="50"  alt="IDEA" title="IntelliJ IDEA"/></a>
+<a href="https://www.java.com/"><img src="media/logo/Java.svg" width="50" height="50" alt="Java" title="Java"/></a>
+<a href="https://github.com/"><img src="media/logo/GitHub.svg" width="50" height="50" alt="Github" title="GitHub"/></a>
+<a href="https://junit.org/junit5/"><img src="media/logo/JUnit5.svg" width="50" height="50" alt="JUnit 5" title="JUnit 5"/></a>
+<a href="https://gradle.org/"><img src="media/logo/Gradle.svg" width="50" height="50" alt="Gradle" title="Gradle"/></a>
+<a href="https://selenide.org/"><img src="media/logo/Selenide.svg" width="50" height="50" alt="Selenide" title="Selenide"/></a>
+<a href="https://aerokube.com/selenoid/"><img src="media/logo/Selenoid.svg" width="50" height="50" alt="Selenoid" title="Selenoid"/></a>
+<a href="https://github.com/allure-framework/allure2"><img src="media/logo/Allure_Report.svg" width="50" height="50" alt="Allure" title="Allure"/></a>
+<a href="https://www.jenkins.io/"><img src="media/logo/Jenkins.svg" width="50" height="50" alt="Jenkins" title="Jenkins"/></a>
+<a href="https://web.telegram.org/"><img src="media\logo\Telegram.svg" width="50" height="50" alt="Telegram" title="Telegram"></a>
+<a href="https://qameta.io/"><img src="media\logo\Allure_TO.svg" width="50" height="50" alt="Allure_TO" title="Allure_TO"></a>
+</p>
+
+Автотесты написаны на **Java** с использованием фреймворка **Selenide**. 
+
+Для сборки проекта используется **Gradle**.
+
+**JUnit5** В качестве фреймворка модульного тестирования **JUnit5**. 
+
+Запуск тестов выполняется из **Jenkins**. **Selenoid** используется для запуска браузеров в контейнерах **Docker**.
+
+**Allure Report**, **AllureTestOps** и **Telegram Bot** используются отображения результатов тестирования.
+
+
+##  Тест кейсы
 
 > Разработаны автотесты на <code>UI</code>.
 
@@ -22,21 +45,6 @@
 - [x] Поиск товара по наименвоанию и артикулу
 - [x] Добавление товаров в корзину и возможности оформления 
 
-
-## Технологический стек
-
-<p align="center">
-<img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="images/logo/Java.svg">
-<img width="6%" title="Selenide" src="images/logo/Selenide.svg">
-<img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
-<img width="6%" title="Allure Report" src="images/logo/Allure_Report.svg">
-<img width="6%" title="Gradle" src="images/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="images/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="images/logo/GitHub.svg">
-<img width="6%" title="Jenkins" src="images/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="images/logo/Telegram.svg">
-</p>
 
 ### В данном проекте автотесты написаны на <code>Java</code> с использованием <code>Selenide</code> для UI-тестов.
 >
@@ -89,7 +97,10 @@ gradle clean test -Denv=remote
 >
 ><code>pageLoadTimeout</code> – таймаут, для ожидания загрузки страницы.
 > 
-> <code>isRemote</code> – флаг, определяющий удаленный запуск тестов.
+> Для запуска тестов в несколько потоков необходимо добавить параметр <code>-Dthreads={Количество потоков}</code>
+> 
+> Например: <code>gradle clean test -Dthreads=2</code>
+> 
 
 
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins

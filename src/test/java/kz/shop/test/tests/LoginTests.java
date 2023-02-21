@@ -21,7 +21,6 @@ public class LoginTests extends BaseTest {
     AuthFormPage authFormPage = new AuthFormPage();
     static WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
-
     @Test
     @DisplayName("Успешная авторизация на сайте")
     public void successfulAuthorizationTest() {
