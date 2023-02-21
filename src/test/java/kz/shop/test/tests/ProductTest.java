@@ -27,7 +27,7 @@ public class ProductTest extends BaseTest {
     Helpers helpers = new Helpers();
 
     @Test
-    @DisplayName("Тест карточки товара")
+    @DisplayName("Проверка карточки товара")
     public void verifyProductCardPage() {
         step("Тестируем страницу карточки товара", () -> {
             helpers.closeBanner();
@@ -43,7 +43,7 @@ public class ProductTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест добавления товара в корзину")
+    @DisplayName("Проверка добавления товара в корзину")
     public void addProductToCart() {
         step("Тестируем добавление товара в корзину", () -> {
             helpers.closeBanner();
@@ -63,7 +63,7 @@ public class ProductTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Тест удаления товара из корзины")
+    @DisplayName("Проверка удаления товара из корзины")
     public void deleteProductFromCart() {
         step("Тестируем удаление товара из корзины", () -> {
             helpers.closeBanner();

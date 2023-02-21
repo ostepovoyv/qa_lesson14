@@ -21,7 +21,7 @@ public class SearchTests extends BaseTest {
     Helpers helpers = new Helpers();
 
     @Test
-    @DisplayName("Поиск по названию товара")
+    @DisplayName("Проверка поиска по названию товара")
     public void searchByNameTest() {
         step("Тестируем поиск на сайте по названию", () -> {
             helpers.closeBanner();
@@ -35,7 +35,7 @@ public class SearchTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Поиск по артикулу")
+    @DisplayName("Проверка поиска по артикулу")
     public void searchByVendorCodeTest() {
         step("Тестируем поиск на сайте по артикулу", () -> {
             helpers.closeBanner();
