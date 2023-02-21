@@ -50,7 +50,7 @@ public class MainPage {
 
     @Step("Проверяем наличие разделов на главной странице")
     public MainPage verifySectionTitleText(String value) {
-        recommenderBlockTitle.shouldHave(CollectionCondition.itemWithText(value));
+        recommenderBlockTitle.shouldHave(texts(value));
         return this;
     }
 

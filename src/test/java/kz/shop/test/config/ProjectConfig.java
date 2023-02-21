@@ -14,7 +14,7 @@ public class ProjectConfig {
         Configuration.pageLoadTimeout = config.getPageLoadTimeout();
         Configuration.browser = config.getBrowserName();
         Configuration.browserVersion = config.getBrowserVersion();
-        if (config.isRemote()) {
+        if (config.getRemoteUrl() != null) {
             Configuration.remote = config.getRemoteUrl();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
