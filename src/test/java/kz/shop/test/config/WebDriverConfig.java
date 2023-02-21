@@ -33,4 +33,17 @@ public interface WebDriverConfig extends Config  {
     @DefaultValue("15000")
     Long getPageLoadTimeout();
 
+    @Key("userLogin")
+    String getUserLogin();
+
+    @Key("userPassword")
+    String userPassword();
+
+    @Key("unregisteredUserLogin")
+    String unregisteredUserLogin();
+
+    @Key("unregisteredUserPassword")
+    String unregisteredUserPassword();
+
+
 }
