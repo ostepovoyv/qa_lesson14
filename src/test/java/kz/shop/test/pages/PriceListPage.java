@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.xlstest.XLS;
 import io.qameta.allure.Step;
+import kz.shop.test.testdata.PriceList;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,17 +43,12 @@ public class PriceListPage {
     }
 
     @Step("Проверяем файл {fileName} и его содержимое")
-    public PriceListPage checkPriceList(String fileName,
-                                        Integer sheet,
-                                        Integer row,
-                                        Integer cell,
-                                        String value
-    ) throws FileNotFoundException {
-        if (fileName.equals("WW_retail_all.xls")) {
-            checkFile("#li_76476", fileName, sheet, row, cell, value);
+    public PriceListPage checkPriceList(PriceList priceList) throws FileNotFoundException {
+        if (priceList.getFileName().equals("WW_retail_all.xls")) {
+            checkFile("#li_76476", priceList.getFileName(), priceList.getSheet(), priceList.getRow(), priceList.getCell(), priceList.getValue());
         }
-        if (fileName.equals("WW_services.xls")) {
-            checkFile("#li_83700", fileName, sheet, row, cell, value);
+        if (priceList.getFileName().equals("WW_services.xls")) {
+            checkFile("#li_83700", priceList.getFileName(), priceList.getSheet(), priceList.getRow(), priceList.getCell(), priceList.getValue());
         }
         return this;
     }

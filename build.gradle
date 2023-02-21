@@ -31,7 +31,6 @@ dependencies {
     testImplementation (
             'org.junit.jupiter:junit-jupiter-api:5.9.0',
             'com.codeborne:selenide:6.10.1',
-//            'com.github.javafaker:javafaker:1.0.2',
             'io.qameta.allure:allure-selenide:2.19.0',
             'org.junit.jupiter:junit-jupiter:5.9.0',
             'org.slf4j:slf4j-simple:1.7.32',
@@ -40,7 +39,19 @@ dependencies {
             'org.assertj:assertj-core:3.23.1',
             'com.codeborne:xls-test:1.4.3'
     )
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testRuntimeOnly (
+            'org.junit.jupiter:junit-jupiter-engine:5.9.0',
+            'org.slf4j:slf4j-simple:2.0.5'
+    )
+
+    testCompileOnly (
+            'org.projectlombok:lombok:1.18.24'
+    )
+
+    testAnnotationProcessor (
+            'org.projectlombok:lombok:1.18.24'
+    )
+
 }
 
 test {
