@@ -34,21 +34,21 @@ public class ProductCardPage {
     }
 
     @Step("Проверка наличия кнопки 'Купить' товар")
-    public ProductCardPage checkBuyButtonAvailableOnPage() {
-        buyButton.shouldBe(visible).shouldHave(text("Купить"));
+    public ProductCardPage checkBuyButtonAvailableOnPage(String value) {
+        buyButton.shouldBe(visible).shouldHave(text(value));
         return this;
     }
 
     @Step("Проверка наличия информации о технических характеристиках товара")
-    public ProductCardPage checkProductSpecificationsAvailableOnPage() {
-        productSpecifications.scrollTo().shouldBe(visible).shouldHave(text("Технические характеристики"));
+    public ProductCardPage checkProductSpecificationsAvailableOnPage(String value) {
+        productSpecifications.scrollTo().shouldBe(visible).shouldHave(text(value));
         return this;
     }
 
     @Step("Добавляем выбранный товар в корзину")
-    public ProductCardPage addProductToBasket(){
+    public ProductCardPage addProductToCart(String value){
         buyButton.click();
-        buyButton.shouldHave(text("В корзине"));
+        buyButton.shouldHave(text(value));
         return this;
     }
 

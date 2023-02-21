@@ -17,8 +17,8 @@ public class SearchPage {
 
 
     @Step("Проверяем наличие поля поиска на главной странице")
-    public SearchPage checkSearchInput() {
-        searchField.shouldHave(Condition.attribute("placeholder", "Поиск по сайту"));
+    public SearchPage checkSearchInput(String value) {
+        searchField.shouldHave(Condition.attribute("placeholder", value));
         return this;
     }
 

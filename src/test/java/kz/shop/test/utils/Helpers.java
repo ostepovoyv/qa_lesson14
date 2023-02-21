@@ -9,15 +9,12 @@ public class Helpers {
 
     @Step("Принудительно закрываем баннеры")
     public void closeBanner(){
-//        $("#onesignal-slidedown-dialog").shouldBe(appear);
-//        $("#regionsPopup").shouldBe(appear);
         executeJavaScript("$('#onesignal-slidedown-dialog').remove()");
         executeJavaScript("$('#regionsPopup').remove()");
     }
 
     @Step("Принудительно закрываем рекламный баннеры")
     public void closeBannerPromotions(){
-//        $("#onesignal-slidedown-dialog").shouldBe(appear);
         executeJavaScript("$('#onesignal-slidedown-dialog').remove()");
     }
 }

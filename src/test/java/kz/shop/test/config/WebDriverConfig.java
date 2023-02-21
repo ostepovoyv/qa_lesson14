@@ -5,7 +5,8 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:${env}.properties"
+        "classpath:${env}.properties",
+        "classpath:test.properties"
 })
 public interface WebDriverConfig extends Config  {
 
@@ -25,16 +26,11 @@ public interface WebDriverConfig extends Config  {
     @DefaultValue("1920x1080")
     String getBrowserSize();
 
-    @Key("isRemote")
-    @DefaultValue("false")
-    Boolean isRemote();
-
     @Key("remoteUrl")
-//    @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
     String getRemoteUrl();
 
     @Key("pageLoadTimeout")
-    @DefaultValue("100000")
+    @DefaultValue("15000")
     Long getPageLoadTimeout();
 
 }

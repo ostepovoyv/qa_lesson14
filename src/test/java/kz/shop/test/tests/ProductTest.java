@@ -37,8 +37,8 @@ public class ProductTest extends BaseTest {
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_NAME)
                     .checkVendorCodeAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE)
                     .checkCurrentPriceAvailableOnPage(TestData.ITEM_BY_VENDOR_CODE_PRICE)
-                    .checkBuyButtonAvailableOnPage()
-                    .checkProductSpecificationsAvailableOnPage();
+                    .checkBuyButtonAvailableOnPage(TestData.BUY_BUTTON_TEXT)
+                    .checkProductSpecificationsAvailableOnPage(TestData.SPECIFICATIONS_TEXT);
         });
     }
 
@@ -53,12 +53,12 @@ public class ProductTest extends BaseTest {
             helpers.closeBanner();
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
-                    .addProductToBasket();
+                    .addProductToCart(TestData.ADD_TO_CART_BUTTON_AFTER_TEXT);
             cartPage
                     .goToCart()
-                    .checkCartPage()
+                    .checkCartPage(TestData.CART_TITLE)
                     .checkProductInCart(TestData.ITEM_BY_NAME)
-                    .checkOrderButton();
+                    .checkOrderButton(TestData.ORDER_BUTTON_TEXT);
         });
     }
 
@@ -73,7 +73,7 @@ public class ProductTest extends BaseTest {
             helpers.closeBanner();
             productCardPage
                     .checkPageTitleAvailableOnPage(TestData.ITEM_BY_NAME)
-                    .addProductToBasket();
+                    .addProductToCart(TestData.ADD_TO_CART_BUTTON_AFTER_TEXT);
             open(BASKET);
             cartPage
                     .checkProductInCart(TestData.ITEM_BY_NAME)

@@ -3,6 +3,7 @@ package kz.shop.test.tests;
 import io.qameta.allure.*;
 import kz.shop.test.pages.AuthFormPage;
 import kz.shop.test.pages.MainPage;
+import kz.shop.test.testdata.PersonalAreaData;
 import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,24 +22,24 @@ public class LoginTests extends BaseTest {
     @DisplayName("Успешная авторизация на сайте")
     public void successfulAuthorizationTest() {
         helpers.closeBanner();
-        mainPage.goToAuthModalForm("Вход");
+        mainPage.goToAuthModalForm(PersonalAreaData.ENTER_BUTTON_TEXT);
         authFormPage
-                .checkModalFormTitle("Вход в интернет-магазин")
+                .checkModalFormTitle(PersonalAreaData.MODAL_FORM_TITLE_TEXT)
                 .setAuthInfo("123", "123")
                 .auth();
-        mainPage.checkAfterLogin("Личный кабинет", "Персональный раздел");
+        mainPage.checkAfterLogin(PersonalAreaData.PA_TEXT, PersonalAreaData.PERSONAL_SECTION_TITLE);
     }
 
     @Test
     @DisplayName("Авторизация на сайте, пользователь не зарегестрирован")
     public void unsuccessfulAuthorizationTest() {
         helpers.closeBanner();
-        mainPage.goToAuthModalForm("Вход");
+        mainPage.goToAuthModalForm(PersonalAreaData.ENTER_BUTTON_TEXT);
         authFormPage
-                .checkModalFormTitle("Вход в интернет-магазин")
+                .checkModalFormTitle(PersonalAreaData.MODAL_FORM_TITLE_TEXT)
                 .setAuthInfo("unregisteredUser", "unregisteredPassword")
                 .auth()
-                .checkAuthStatus("Неверный логин или пароль.");
+                .checkAuthStatus(PersonalAreaData.ERROR_TEXT);
     }
 
 }

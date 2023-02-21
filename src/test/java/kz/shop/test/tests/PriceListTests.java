@@ -2,6 +2,7 @@ package kz.shop.test.tests;
 
 import io.qameta.allure.*;
 import kz.shop.test.pages.PriceListPage;
+import kz.shop.test.testdata.TestData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
@@ -20,8 +21,8 @@ public class PriceListTests extends BaseTest {
     @DisplayName("Проверка доступности и содержимого розничного прайс-листа")
     public void checkRetailPriceList() throws FileNotFoundException {
         priceListPage
-                .openPriceListPage("Прайс-листы")
-                .selectRetailPriceList("Розничный общий")
+                .openPriceListPage(TestData.PR_TEXT)
+                .selectRetailPriceList(TestData.PR_RETAIL)
                 .checkPriceList(prRetailCompanyName)
                 .checkPriceList(prRetailSite)
                 .checkPriceList(prRetailName)
@@ -36,8 +37,8 @@ public class PriceListTests extends BaseTest {
     @DisplayName("Проверка доступности и содержимого прайс-листа сервисных услуг")
     public void checkServicesPriceList() throws FileNotFoundException {
         priceListPage
-                .openPriceListPage("Прайс-листы")
-                .selectServicesPriceList("Сервисные услуги")
+                .openPriceListPage(TestData.PR_TEXT)
+                .selectServicesPriceList(TestData.PR_SERVICES)
                 .checkPriceList(prServicesCompanyName)
                 .checkPriceList(prServicesName)
                 .checkPriceList(prServicesCode)

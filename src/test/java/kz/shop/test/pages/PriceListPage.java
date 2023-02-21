@@ -17,10 +17,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriceListPage {
 
+    private String
+            retailPriceLocator = "#li_76476",
+            retailPriceFileName = "WW_retail_all.xls",
+            servicesPriceLocator = "#li_83700",
+            servicesPriceFileName = "WW_services.xls";
+
     private final SelenideElement
             pagetitle = $("#pagetitle"),
-            retailPriceList = $("#li_76476"),
-            servicesPriceList = $("#li_83700");
+            retailPriceList = $(retailPriceLocator),
+            servicesPriceList = $(servicesPriceLocator);
+
+
 
 
     @Step("Переходим на страницу прайс листов")
@@ -44,11 +52,21 @@ public class PriceListPage {
 
     @Step("Проверяем файл {fileName} и его содержимое")
     public PriceListPage checkPriceList(PriceList priceList) throws FileNotFoundException {
-        if (priceList.getFileName().equals("WW_retail_all.xls")) {
-            checkFile("#li_76476", priceList.getFileName(), priceList.getSheet(), priceList.getRow(), priceList.getCell(), priceList.getValue());
+        if (priceList.getFileName().equals(retailPriceFileName)) {
+            checkFile(retailPriceLocator,
+                    priceList.getFileName(),
+                    priceList.getSheet(),
+                    priceList.getRow(),
+                    priceList.getCell(),
+                    priceList.getValue());
         }
-        if (priceList.getFileName().equals("WW_services.xls")) {
-            checkFile("#li_83700", priceList.getFileName(), priceList.getSheet(), priceList.getRow(), priceList.getCell(), priceList.getValue());
+        if (priceList.getFileName().equals(servicesPriceFileName)) {
+            checkFile(servicesPriceLocator,
+                    priceList.getFileName(),
+                    priceList.getSheet(),
+                    priceList.getRow(),
+                    priceList.getCell(),
+                    priceList.getValue());
         }
         return this;
     }

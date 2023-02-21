@@ -2,6 +2,7 @@ package kz.shop.test.tests;
 
 import io.qameta.allure.*;
 import kz.shop.test.pages.MainPage;
+import kz.shop.test.testdata.TestData;
 import kz.shop.test.utils.Helpers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -74,19 +75,19 @@ public class MainPageTest extends BaseTest {
     public void checkContactInformation() {
         helpers.closeBanner();
         step("Проверка контактной информации в шапке на главной странице", () -> {
-            mainPage.checkContactInfoInHeader(" +7 771 920-19-20");
+            mainPage.checkContactInfoInHeader(TestData.CONTACT_PHONE);
         });
         step("Проверка контактной информации в футере", () -> {
             mainPage
-                    .selectMenuItem("Адреса и телефоны")
+                    .selectMenuItem(TestData.ADRESS_AND_PHONE)
                     .checkContactInfoInAdressAndPhone(
-                            "Наши адреса в г. Алматы",
-                            "Интернет-магазин",
-                            "+7 (771) 920-19-20"
+                            TestData.ADRESS_TEXT,
+                            TestData.DEPARTMENT,
+                            TestData.CONTACT_PHONE_ON_PAGE
                     );
         });
         step("Проверка контактной информации в навигационном меню", () -> {
-            mainPage.checkContactInfoInNavbar(" +7 771 920-19-20");
+            mainPage.checkContactInfoInNavbar(TestData.CONTACT_PHONE);
         });
     }
 

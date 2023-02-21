@@ -22,8 +22,8 @@ public class CartPage {
     }
 
     @Step("Проверяем, переход в корзину")
-    public CartPage checkCartPage() {
-        cartTitle.shouldHave(text("Моя корзина"));
+    public CartPage checkCartPage(String value) {
+        cartTitle.shouldHave(text(value));
         return this;
     }
 
@@ -34,8 +34,8 @@ public class CartPage {
     }
 
     @Step("Проверяем доступность кнопки оформить")
-    public CartPage checkOrderButton() {
-        cartSubmit.shouldHave(type("button")).shouldHave(value("Оформить заказ"));
+    public CartPage checkOrderButton(String value) {
+        cartSubmit.shouldHave(type("button")).shouldHave(value(value));
         return this;
     }
 

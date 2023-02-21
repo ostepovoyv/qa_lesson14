@@ -26,7 +26,7 @@ public class SearchTests extends BaseTest {
         step("Тестируем поиск на сайте по названию", () -> {
             helpers.closeBanner();
             searchPage
-                    .checkSearchInput()
+                    .checkSearchInput(TestData.SEARCH_INPUT_TEXT)
                     .searchItem(TestData.ITEM_BY_NAME)
                     .checkResultAfterSearch(TestData.ITEM_BY_NAME);
             productCardPage
@@ -40,7 +40,7 @@ public class SearchTests extends BaseTest {
         step("Тестируем поиск на сайте по артикулу", () -> {
             helpers.closeBanner();
             searchPage
-                    .checkSearchInput()
+                    .checkSearchInput(TestData.SEARCH_INPUT_TEXT)
                     .searchItem(TestData.ITEM_BY_VENDOR_CODE)
                     .checkResultAfterSearch(TestData.ITEM_BY_VENDOR_CODE_NAME);
             productCardPage
