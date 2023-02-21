@@ -2,15 +2,13 @@
 
 ## :open_book: Содержание:
 
-- [Технологии и инструменты](#gear-технологии-и-инструменты)
-- [Тест кейсы](#heavy_check_mark-Тест-кейсы)
-- [Запуск тестов](#computer-запуск-тестов)
-- [Примеры использования](#примеры-использования)
-- [Запуск тестов в Jenkins](#-запуск-тестов-из-jenkins)
-- [Отчет о результатах тестирования в Allure Report](#-отчет-о-результатах-тестирования-в-Allure-report)
-- [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
-- [Уведомления в Telegram](#-уведомления-в-telegram)
-- [Видео прохождения тестов](#movie_camera-видео-с-прогоном-тестов)
+- [Технологии и инструменты](#-Технологии-и-инструменты)
+- [Тест кейсы](#-тест-кейсы)
+- [Запуск тестов ](#запуск-тестов)
+- [Отчет о результатах тестирования в Allure Report](#-страница-allure-отчета)
+- [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+- [Пример прохождения теста в Selenoid](#-пример-прохождения-теста-в-selenoid)
+
 
 ## :gear: Технологии и инструменты
 
@@ -31,13 +29,13 @@
 ### В данном проекте автотесты написаны на <code>Java</code> с использованием <code>Selenide</code> для UI-тестов.
 >
 > Автотесты написаны на <code>Java</code>
->
+> 
 > <code>Selenide</code> - это фреймворк для автоматизированного тестирования веб-приложений на основе <code>Selenium WebDriver</code>.
 >
 > <code>Selenoid</code> выполняет запуск браузеров в контейнерах <code>Docker</code>.
 >
 > <code>Allure Report</code> формирует отчет о запуске тестов.
->
+> 
 > <code>AllureTestOps</code> используются для запуска тестов и отображения результатов тестирования.
 >
 > <code>Gradle</code> автоматизированной сборки проекта.
@@ -45,12 +43,13 @@
 > <code>JUnit 5</code> библиотека для модульного тестирования .
 >
 > <code>Jenkins</code> выполняет запуск тестов.
->
+> 
 > <code>Selenoid</code> используется для запуска браузеров в контейнерах <code>Docker</code>.
 >
 > После прохождения тестов отправляются уведомления с помощью бота в <code>Telegram</code>.
 
-## :heavy_check_mark: Тест кейсы
+
+##  Тест кейсы
 
 > Разработаны автотесты на <code>UI</code>.
 
@@ -70,7 +69,8 @@
 - [x] Проверка поиска по названию товара
 - [x] Проверка поиска по артикулу
 
-## :computer: Запуск тестов
+
+## Запуск тестов
 
 ### Локальный запуск тестов
 ```
@@ -88,105 +88,61 @@ gradle clean test -Denv=remote
 #### Для запуска тестов в Jenkins используется <code>remote.proterties</code>
 
 
-
-
-### :earth_asia: Удаленный запуск тестов
-
-```bash
-gradle clean test
--Dbrowser=${browser}
--DbrowserVersion=${browserVersion}
--DbrowserSize=${browserSize}
--DremoteDriverUrl=https://%s:%s@${REMOTE_DRIVER_URL}/wd/hub/
-```
-
 #### Параметры сборки
 >
 ><code>baseUrl</code> – адрес удаленного сервера, на котором будут запускаться тесты.
->
+> 
 ><code>browser</code> – браузер для тестов.
->
+> 
 ><code>browserVersion</code> – версия браузера.
->
+> 
 ><code>browserSize</code> – размер окна браузера.
->
+> 
 ><code>remoteUrl</code> – адрес удаленного сервера, на котором будут запускаться тесты.
 >
 ><code>pageLoadTimeout</code> – таймаут, для ожидания загрузки страницы.
->
+> 
 > Для запуска тестов в несколько потоков необходимо добавить параметр <code>-Dthreads={Количество потоков}</code>
->
+> 
 > Например: <code>gradle clean test -Dthreads=2</code>
 
 
-## Примеры использования
 
-### Для запуска удаленных тестов необходимо заполнить remote.properties или передать значение:
-
-* browser (браузер, по умолчанию chrome)
-* browserVersion (версия браузера, по умолчанию 100.0)
-* browserSize (размер окна браузера, по умолчанию 1920x1080)
-* remoteDriverUrl (url адрес selenoid)
-* videoStorage (url адрес с видео прохождения тестов)
-
-Логин и пароль извлекаются из соответствующего файла конфигурации:
-```bash
-./resources/config/test.properties
-```
-
-
-
-
-## <img width="4%" title="Jenkins" src="media/logo/Jenkins.svg"> Запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job//)
-Для запуска сборки необходимо перейти в раздел <code><strong>*Собрать с параметрами*</strong></code> и нажать кнопку <code><strong>*Собрать*</strong></code>.
+## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Удаленный запуск тестов в Jenkins
 
 <p align="center">
-  <img src="media/screen/start_jenkins.png" alt="Jenkins" width="800">
+<img title="jenkins_job" src="images/screens/jenkins_job.png">
 </p>
 
-После выполнения сборки, в блоке <code><strong>*История сборок*</strong></code> напротив номера сборки появится
-значок *Allure Report* и *Allure TestOps* кликнув по которому, откроется страница с сформированным html-отчетом и тестовой документацией.
-
-## <img width="4%" title="Allure Report" src="media/logo/Allure_Report.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job//)
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Cтраница Allure отчета
 
 <p align="center">
-  <img src="media/screen/jenkins_overview.png" alt="allure-report" width="900">
+<img title="allure1" src="images/screens/allure1.png">
 </p>
 
+## <img width="4%" title="Allure_Report" src="images/logo/Allure_Report.svg"> Список проводимых проверок
+
 <p align="center">
-  <img src="media/screen/jenkins_behaviors.png" alt="allure-report_1" width="900">
+<img title="allure2" src="images/screens/allure2.png">
 </p>
 
-## <img width="4%" title="Allure TestOPS" src="media/logo/Allure_TO.svg"> Интеграция с [Allure TestOps](https://allure.autotests.cloud/launch/)
 
-### Основной дашборд
+
+## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+
+> После прохождения всех тестов, автоматически отправляется отчет в<code>Telegram</code>
+>
 
 <p align="center">
-  <img src="media/screen/dashboards.png" alt="dashboard" width="900">
+<img title="telegram_notification" src="images/screens/telegram_notification.png">
 </p>
 
-### Список тестов с результатами прогона
+## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример прохождения теста в Selenoid
+
+> Для каждого теста в отчете прилагается видео.
+> 
+> Видео для примера. 
 
 <p align="center">
-  <img src="media/screen/allure-testops-results.png" alt="dashboard" width="900">
-</p>
-
-### Тест-кейсы
-
-<p align="center">
-  <img src="media/screen/allure-testops-testcases.png" alt="testcase" width="900">
-</p>
-
-## <img width="4%" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram
-После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
-
-<p align="center">
-<img title="Telegram Notifications" src="media/screen/notifications.png">
-
-## :movie_camera: Видео с прогоном тестов
-
-В отчетах Allure для каждого теста прикреплен не только скриншот, но и видео прохождения теста
-
-<p align="center">
-  <img title="Video" src="media/video/Lamoda_tests.gif">
+<img title="toCart" src="images/gifs/toCart.gif">
 </p>
