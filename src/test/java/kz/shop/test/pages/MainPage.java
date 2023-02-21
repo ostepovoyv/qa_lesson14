@@ -21,7 +21,7 @@ public class MainPage {
             horizontalMenu = $$(".bx-inclinkstop-container"),
             sidebar = $$(".bx-nav-1-lvl"),
             catalogItemTitle = $$(".bx_catalog_tile_title"),
-            recommenderBlockTitle = $$(".recommender-block-title"),
+            mainNews = $$(".bx-main-news h3 a"),
             footerHeaderMenu = $$(".footer_header_btn"),
             listLine = $$(".list-line");
 
@@ -50,7 +50,7 @@ public class MainPage {
 
     @Step("Проверяем наличие разделов на главной странице")
     public MainPage verifySectionTitleText(String value) {
-        recommenderBlockTitle.shouldHave(texts(value));
+        mainNews.find(text(value)).shouldHave(appear);
         return this;
     }
 

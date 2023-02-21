@@ -35,7 +35,7 @@ public class MainPageTest extends BaseTest {
      */
 
     @ParameterizedTest(name = "Проверка наличия разделов на главной странице: {0}")
-    @ValueSource(strings = {"Новинки", "Популярные"})
+    @ValueSource(strings = {"Новости и анонсы", "Отзывы покупателей", "Опросы"})
     public void checkMainPageSection(String value) {
         step("Проверяем наличие разделов на главной странице", () -> {
             helpers.closeBanner();
