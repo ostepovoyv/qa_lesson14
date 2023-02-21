@@ -42,7 +42,7 @@
 >
 > <code>Gradle</code> автоматизированной сборки проекта.
 >
-> <code>JUnit 5</code> библиотека для модульного тестирования .
+> <code>JUnit 5</code> библиотека для модульного тестирования.
 >
 > <code>Jenkins</code> выполняет запуск тестов.
 >
@@ -87,9 +87,6 @@ gradle clean test -Denv=remote
 ```
 #### Для запуска тестов в Jenkins используется <code>remote.proterties</code>
 
-
-
-
 ### :earth_asia: Удаленный запуск тестов
 
 ```bash
@@ -97,8 +94,23 @@ gradle clean test
 -Dbrowser=${browser}
 -DbrowserVersion=${browserVersion}
 -DbrowserSize=${browserSize}
--DremoteDriverUrl=https://%s:%s@${REMOTE_DRIVER_URL}/wd/hub/
 ```
+
+## Примеры использования
+
+### Для запуска удаленных тестов необходимо заполнить remote.properties или передать значение:
+* baseUrl - основной url
+* browser (браузер, по умолчанию chrome)
+* browserVersion (версия браузера, по умолчанию 100.0)
+* browserSize (размер окна браузера, по умолчанию 1920x1080)
+* pageLoadTimeout - переопределение таймаута выставленного по умолчанию
+* remoteUrl - url адрес selenoid
+
+Логин и пароль извлекаются из соответствующего файла конфигурации:
+```bash
+./resources/test.properties
+```
+
 
 #### Параметры сборки
 >
@@ -117,23 +129,6 @@ gradle clean test
 > Для запуска тестов в несколько потоков необходимо добавить параметр <code>-Dthreads={Количество потоков}</code>
 >
 > Например: <code>gradle clean test -Dthreads=2</code>
-
-
-## Примеры использования
-
-### Для запуска удаленных тестов необходимо заполнить remote.properties или передать значение:
-
-* browser (браузер, по умолчанию chrome)
-* browserVersion (версия браузера, по умолчанию 100.0)
-* browserSize (размер окна браузера, по умолчанию 1920x1080)
-* remoteDriverUrl (url адрес selenoid)
-* videoStorage (url адрес с видео прохождения тестов)
-
-Логин и пароль извлекаются из соответствующего файла конфигурации:
-```bash
-./resources/config/test.properties
-```
-
 
 
 
@@ -188,5 +183,5 @@ gradle clean test
 В отчетах Allure для каждого теста прикреплен не только скриншот, но и видео прохождения теста
 
 <p align="center">
-  <img title="Video" src="media/video/Lamoda_tests.gif">
+  <img title="Video" src="media/video/toCart.gif">
 </p>
